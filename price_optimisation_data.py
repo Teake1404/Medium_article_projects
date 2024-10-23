@@ -156,3 +156,21 @@ def plot_revenue_gam_one_product_using_lowess(df,category):
     ))          
     # Show plot
     return fig.show()
+
+# Define a function to calculate profit
+def calculate_profit(price, cost, predicted_qty):
+    return (price - cost) * predicted_qty
+
+# Define the objective function to minimize (negative profit)
+def objective_function(price, row, gam, cost):
+    # Predict the quantity for the current price using the GAM model
+    predicted_qty = gam.predict(pd.DataFrame({
+        'unit_price': [price], 
+        'encoded_holiday': [row['encoded_holiday']]
+    }))[0]  # Extract the first value
+    
+    # Calculate profit for the given price
+    profit = calculate_profit(price, cost, predicted_qty)
+    
+    # We want to maximize profit, so we minimize the negative of the profit
+    return -profit
