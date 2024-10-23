@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import os
 import matplotlib.pyplot as plt
-%matplotlib inline 
 import seaborn as sns
 import plotly.express as px
 import plotly.graph_objs as go
