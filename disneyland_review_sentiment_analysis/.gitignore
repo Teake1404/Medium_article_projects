@@ -1,0 +1,4 @@
+# Ignore the virtual environment directory
+.venv/
+echo .DS_Store
+.env
