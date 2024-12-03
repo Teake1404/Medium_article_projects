@@ -5,3 +5,4 @@ plotly
 streamlit
 joblib
 sentence-transformers
+torch
