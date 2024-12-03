@@ -3,14 +3,16 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import joblib
+import os
 
 # Load your precomputed embeddings and dataset
-df = pd.read_csv('df_with_embeddings.csv')  # Replace with the actual dataset
-gift_embeddings = np.load('gift_embeddings.npy')  # Replace with the actual embeddings
+
+df = pd.read_csv(os.path.join(os.getcwd(),'df_with_embeddings.csv'))  # Replace with the actual dataset
+gift_embeddings = np.load(os.path.join(os.getcwd(),'gift_embeddings.npy'))  # Replace with the actual embeddings
 
 @st.cache_resource
 def load_model():
-    return joblib.load("model.pkl")
+    return joblib.load(os.path.join(os.getcwd(),'model.pkl'))
 
 model = load_model()
 
