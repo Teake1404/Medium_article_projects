@@ -4,17 +4,26 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import joblib
 import os
+from sentence_transformers import SentenceTransformer
+import torch
 
 # Load your precomputed embeddings and dataset
 
 df = pd.read_csv(os.path.join(os.getcwd(),'xmas_gift_ideas_recommender_system/df_with_embeddings.csv'))  # Replace with the actual dataset
 gift_embeddings = np.load(os.path.join(os.getcwd(),'xmas_gift_ideas_recommender_system/gift_embeddings.npy'))  # Replace with the actual embeddings
 
-@st.cache_resource
-def load_model():
-    return joblib.load(os.path.join(os.getcwd(),'xmas_gift_ideas_recommender_system/model.pkl'))
+# @st.cache_resource
+# def load_model():
+#     return joblib.load(os.path.join(os.getcwd(),'xmas_gift_ideas_recommender_system/model.pkl'))
 
-model = load_model()
+# model = load_model()
+
+# Force the model to use CPU
+device = torch.device('cpu')
+
+# Load the model and move it to CPU
+model = SentenceTransformer('all-MiniLM-L6-v2', device=device)
+
 
 # Budget Filter
 def is_within_budget(price_range, min_budget, max_budget):
