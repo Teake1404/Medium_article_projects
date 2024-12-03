@@ -7,12 +7,12 @@ import os
 
 # Load your precomputed embeddings and dataset
 
-df = pd.read_csv(os.path.join(os.getcwd(),'df_with_embeddings.csv'))  # Replace with the actual dataset
-gift_embeddings = np.load(os.path.join(os.getcwd(),'gift_embeddings.npy'))  # Replace with the actual embeddings
+df = pd.read_csv(os.path.join(os.getcwd(),'xmas_gift_ideas_recommender_system/df_with_embeddings.csv'))  # Replace with the actual dataset
+gift_embeddings = np.load(os.path.join(os.getcwd(),'xmas_gift_ideas_recommender_system/gift_embeddings.npy'))  # Replace with the actual embeddings
 
 @st.cache_resource
 def load_model():
-    return joblib.load(os.path.join(os.getcwd(),'model.pkl'))
+    return joblib.load(os.path.join(os.getcwd(),'xmas_gift_ideas_recommender_system/model.pkl'))
 
 model = load_model()
 
@@ -32,7 +32,7 @@ def is_within_budget(price_range, min_budget, max_budget):
 st.title("🎄 Xmas Gift Guide 🎁")
 
 # Add a Christmas-themed image (Replace with your own image URL or path)
-st.image("xmas.png", caption="Holiday Season Gifts!", use_column_width=True)
+st.image(os.path.join(os.getcwd(),'xmas_gift_ideas_recommender_system/xmas.png'), caption="Holiday Season Gifts!", use_column_width=True)
 
 
 # Streamlit input fields
