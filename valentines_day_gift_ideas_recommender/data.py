@@ -17,7 +17,7 @@ from mtcnn import MTCNN
 
 def detect_faces(image_path):
     # Load the pre-trained Haar Cascade model
-    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    # face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     
     # Read the image and convert to grayscale
     image = cv2.imread(image_path)
