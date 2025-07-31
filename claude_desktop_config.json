@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "EcomAI": {
+      "command": "/Users/shuqingke/Documents/ecommerce_mcp/start_mcp.sh"
+    }
+  }
+}

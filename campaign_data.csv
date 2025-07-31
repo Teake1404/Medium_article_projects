@@ -1,0 +1,10 @@
+campaign_id,spend,revenue,orders,clicks,impressions,ctr,cpc,roas,start_date,end_date,email_list,creative_id,offer_id,platform,utm_source
+shopify_001,1245,3424,65,774,23282,2.72%,2.15,2.75,2025-06-29,2025-07-14,list_a,cre_216,off_105,shopify,social
+shopify_002,1445,5968,83,886,29730,2.32%,1.69,4.13,2025-06-29,2025-07-14,list_c,cre_743,off_108,shopify,direct
+shopify_003,529,2090,35,264,5730,4.94%,1.06,3.95,2025-06-29,2025-07-14,list_c,cre_395,off_753,shopify,email
+klaviyo_001,638,2316,53,291,26494,5.22%,1.04,3.63,2025-06-29,2025-07-14,list_d,cre_399,off_252,klaviyo,sms
+klaviyo_002,1476,3897,81,603,8601,6.00%,6.59,2.64,2025-06-29,2025-07-14,list_d,cre_610,off_431,klaviyo,sms
+klaviyo_003,455,1825,32,273,11477,3.37%,0.6,4.01,2025-06-29,2025-07-14,list_d,cre_627,off_548,klaviyo,email
+googleads_001,553,1875,56,419,29036,3.08%,0.93,3.39,2025-06-29,2025-07-14,,cre_620,off_719,google_ads,display
+googleads_002,1097,2775,87,951,8484,3.83%,1.27,2.53,2025-06-29,2025-07-14,,cre_620,off_906,google_ads,cpc
+googleads_003,284,1056,29,713,7929,2.25%,1.33,3.72,2025-06-29,2025-07-14,,cre_767,off_211,google_ads,cpc
