@@ -176,6 +176,13 @@ TOP 3 CAMPAIGNS BY REVENUE:
 TOP 3 CAMPAIGNS BY SPEND:
 {top_campaigns.to_string(index=False)}
                 """
+            else:
+                # Default top analysis
+                top_campaigns = df.nlargest(3, 'roas')[['campaign_id', 'platform', 'roas', 'revenue', 'spend']]
+                return f"""
+TOP 3 CAMPAIGNS BY ROAS (DEFAULT):
+{top_campaigns.to_string(index=False)}
+                """
         
         elif "platform" in query and ("compare" in query or "summary" in query or "overview" in query):
             platform_summary = df.groupby('platform').agg({
@@ -244,6 +251,13 @@ CAMPAIGN DATA OVERVIEW:
 UNDERPERFORMING CAMPAIGNS (LOWEST ROAS):
 {worst_campaigns.to_string(index=False)}
                 """
+            else:
+                # Default underperforming analysis
+                worst_campaigns = df.nsmallest(3, 'roas')[['campaign_id', 'platform', 'roas', 'revenue', 'spend']]
+                return f"""
+UNDERPERFORMING CAMPAIGNS (LOWEST ROAS):
+{worst_campaigns.to_string(index=False)}
+                """
         
         elif "creative" in query or "offer" in query:
             creative_performance = df.groupby('creative_id').agg({
@@ -280,6 +294,21 @@ Try asking something specific like "show me top campaigns by ROAS" or "compare p
     
     except Exception as e:
         return f"Error analyzing data: {str(e)}"
+    
+    # Final safety check - ensure we always return a string
+    return """
+CAMPAIGN DATA ANALYSIS HELP:
+I couldn't match your query to a specific analysis. Here are some examples you can try:
+
+• "Show me top campaigns by ROAS"
+• "Compare platform performance" 
+• "Analyze channel performance"
+• "Get campaign overview"
+• "Find underperforming campaigns"
+• "Check email list performance"
+
+Or try the ai_analysis tool for natural language queries!
+    """
 
 @mcp.tool()
 def ai_analysis(query: str) -> str:
